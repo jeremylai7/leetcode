@@ -29,7 +29,7 @@ public class L1TwoSum {
 	 * 暴力枚举
 	 */
 	@Test
-	public void ViolenceTest() {
+	public void violenceTest() {
 		int[] resultArray = null;
 		for (int i = 0; i < ARRAY.length; i++) {
 			for (int j = i; j < ARRAY.length; j++) {
@@ -41,8 +41,11 @@ public class L1TwoSum {
 		print(resultArray);
 	}
 
+	/**
+	 * 哈希表
+	 */
 	@Test
-	public void HashMapTest(){
+	public void hashMapTest(){
 		int[] resultArray = null;
 		Map<Integer,Integer> map = new HashMap<>();
 		for (int i = 0; i <ARRAY.length ; i++) {
@@ -57,9 +60,9 @@ public class L1TwoSum {
 	}
 
 
-	private void print(int[] array){
-		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
+	private void print(int[] arrays){
+		for(int array : arrays){
+			System.out.println(array + " ");
 		}
 	}
 }

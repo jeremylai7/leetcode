@@ -12,6 +12,7 @@ public class L11ContainerWithMostWater {
 
     private int[] ARRAY = {1,8,6,2,5,4,8,3,7};
 
+
     /**
      * 双指针解法
      */

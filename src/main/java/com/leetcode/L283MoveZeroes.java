@@ -23,7 +23,7 @@ public class L283MoveZeroes {
     private final static Integer[] ARRAY =  {0,1,0,3,12};
 
     /**
-     * 设置一个初始为零的指针index，遍历数组，讲非零的数放在index，index右移。遍历结束后，index剩余数据设置为零
+     * 设置一个初始为零的指针index，遍历数组，将非零的数放在index，index右移。遍历结束后，index剩余数据设置为零
      */
     @Test
     public void test1(){

@@ -11,7 +11,7 @@ import java.util.Stack;
  * @Date: Created in  2021-01-29
  * @desc: 二叉树前序遍历
  */
-public class BinaryTreeTraversal {
+public class L144BinaryTreeTraversal {
 
 	private static TreeNode treeNode = null;
 

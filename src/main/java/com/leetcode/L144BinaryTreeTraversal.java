@@ -9,7 +9,7 @@ import java.util.Stack;
 /**
  * @Author: laizc
  * @Date: Created in  2021-01-29
- * @desc: 二叉树前序遍历
+ * @desc: 二叉树遍历
  */
 public class L144BinaryTreeTraversal {
 

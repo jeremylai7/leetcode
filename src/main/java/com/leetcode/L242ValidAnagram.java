@@ -1,9 +1,10 @@
 package com.leetcode;
 
-import com.sun.tools.corba.se.idl.StringGen;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author: laizc

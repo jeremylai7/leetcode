@@ -16,6 +16,11 @@ public class L367ValidPerfectSquare {
 		System.out.println(valid);
 	}
 
+	/**
+	 * 二分查找
+	 * @param x
+	 * @return 是否为完全平方数
+	 */
 	private boolean binary(int x) {
 		if (x <= 2) {
 			return true;

@@ -13,6 +13,10 @@ public class L7ReverseInteger {
 
     /**
      * 暴力求解
+     * 思路：1 将数字转成字符串
+     *      2 将字符串分成数组
+     *      3 数组位置反转
+     *      4 数组拼接成数字
      */
     @Test
     public void violent () {

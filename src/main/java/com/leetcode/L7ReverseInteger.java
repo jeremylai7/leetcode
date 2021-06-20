@@ -9,7 +9,7 @@ import org.junit.Test;
  **/
 public class L7ReverseInteger {
 
-    private int x = 1234;
+    private int x = -123;
 
     /**
      * 暴力求解
@@ -45,5 +45,24 @@ public class L7ReverseInteger {
         }
         System.out.println(sum);
     }
+
+    /**
+     * 取模
+     */
+    @Test
+    public void modulus() {
+        long result = 0;
+        while (x != 0) {
+            int a = x%10;
+            x = x/10;
+            result = result*10 + a;
+        }
+        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            result = 0;
+        }
+        System.out.println(result);
+
+    }
+
 
 }

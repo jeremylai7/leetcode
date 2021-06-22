@@ -1,9 +1,6 @@
 package com.leetcode;
 
-import javafx.beans.binding.When;
 import org.junit.Test;
-
-import java.util.logging.Level;
 
 /**
  * @Author: laizc

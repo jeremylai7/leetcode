@@ -9,13 +9,13 @@ import org.junit.Test;
  */
 public class L5LongestPalindromicSubstring {
 
-	private String str = "abca";
+	private String str = "babad";
 
 	/**
-	 * 中心扩散法
+	 * 中心扩散法 只能解决回文字串为奇数的情况
 	 */
 	@Test
-	public void centerSpread() {
+	public void centerSpreadTest() {
 		String result = "";
 		int length = str.length();
 		if (length == 1) {
@@ -54,5 +54,57 @@ public class L5LongestPalindromicSubstring {
 			}
 		}
 		System.out.println(result);
+	}
+
+	/**
+	 * 中心扩散法
+	 * 采用的是双指针方法，解决回文字符串为偶数情况
+	 *
+	 */
+	@Test
+	public void longestPalindromeTest() {
+		String s =longestPalindrome(str);
+		System.out.println(s);
+	}
+
+	private static String longestPalindrome(String s) {
+		int length = s.length();
+		if (s == null || s.length() < 1 || length == 1) {
+			return "";
+		}
+		if (length == 2) {
+			if (s.charAt(0) == s.charAt(1)) {
+				return s;
+			}else {
+				return s.substring(0,1);
+			}
+		}
+		int start = 0,end = 0;
+		String result = "";
+		for (int i = 0; i < length; i++) {
+			//回文数长度为奇数
+			int len1 = expandAroundCenter(s,i,i);
+			//回文数长度为偶数
+			int len2 = expandAroundCenter(s,i,i+1);
+			int len = Math.max(len1,len2);
+			if (len > end -start) {
+				start = i - (len - 1)/2;
+				end = i + len/2;
+			}
+			if (end - start + 1 > result.length()) {
+				result = s.substring(start,end + 1);
+			}
+		}
+		return result;
+
+
+	}
+
+	private static int expandAroundCenter(String s,int left,int right) {
+		while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+			--left;
+			right++;
+		}
+		return right - left - 1;
 	}
 }

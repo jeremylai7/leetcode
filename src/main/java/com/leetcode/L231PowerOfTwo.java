@@ -25,7 +25,7 @@ public class L231PowerOfTwo {
 			return true;
 		}
 		if (n%2 != 0) {
-			return true;
+			return false;
 		}
 		return modulus(n/2);
 	}

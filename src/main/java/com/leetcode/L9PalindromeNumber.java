@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * @Author: laizc
  * @Date: Created in  2021-06-21
- * @desc: 回文数
+ * @desc: 回文数   比如 123 -> 321
  */
 public class L9PalindromeNumber {
 

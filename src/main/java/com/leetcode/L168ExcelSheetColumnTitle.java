@@ -19,7 +19,7 @@ import org.junit.Test;
  */
 public class L168ExcelSheetColumnTitle {
 
-	private int ch = 27;
+	private int ch = 26;
 
 	/**
 	 * 解题思路：进制转换，从1开始的26进制转换
@@ -37,19 +37,7 @@ public class L168ExcelSheetColumnTitle {
 		System.out.println(str);
 	}
 
-	/**
-	 *    @符号是A的前一个字符
-	 */
-	@Test
-	public void test2() {
-		StringBuffer sb = new StringBuffer();
-		while (ch > 0) {
-			sb.append((char)(ch%26 + '@'));
-			ch = ch/26;
-		}
-		String str = sb.reverse().toString();
-		System.out.println(str);
-	}
+
 
 
 

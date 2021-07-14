@@ -21,17 +21,28 @@ public class L69Sqrtx {
 	 */
 	@Test
 	public void test() {
-		int x = 8;
-		//int result = binary(x);
+		int x = 3;
+		int result = binary(x);
+		System.out.println(result);
 	}
 
-	/*private int binary(int x){
-		int half = x/2;
-		int multiply = half * half;
-		if (multiply == x) {
-			return half;
-		}else if (multiply > x) {
-			binary(half);
+	private int binary(int x){
+		if (x == 0 || x == 1) {
+			return x;
 		}
-	}*/
+		int left = 1;
+		int right = x;
+		int result = -1;
+		while (left < right) {
+			int mid = left + (right - left)/2;
+			//long 解决乘积超过int大小问题
+			if ((long)mid * mid > x) {
+				right = mid - 1;
+			} else {
+				result = mid;
+				left = mid + 1;
+			}
+		}
+		return result;
+	}
 }

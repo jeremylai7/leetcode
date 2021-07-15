@@ -26,7 +26,35 @@ public class L167TwoSumIiInputArrayIsSorted {
 
 	}
 
-	public int[] binary(int[] numbers,int target) {
+	/**
+	 * 双指针
+	 * 1、初始指针指向第一个数left，和最后一个数right
+	 * 2、left + right = target 直接返回
+	 * 3、left + right < target left右移
+	 * 4、left + right > target right左移
+	 */
+	@Test
+	public void doublePoint() {
+		int[] result = doublePoint(numbers,target);
+		print(result);
+	}
+
+	private int[] doublePoint(int[] numbers,int target) {
+		int left = 0,right = numbers.length - 1;
+		while (left < right) {
+			int sub = target - numbers[right];
+			if (numbers[left] == sub){
+				return new int[]{left+1,right+1};
+			}else if (numbers[left] < sub) {
+				left++;
+			} else {
+				right--;
+			}
+		}
+		return new int[]{-1,-1};
+	}
+
+	private int[] binary(int[] numbers,int target) {
 		int length = numbers.length;
 		for (int i = 0; i < length; i++) {
 			int first = numbers[i];
@@ -46,6 +74,8 @@ public class L167TwoSumIiInputArrayIsSorted {
 		}
 		return new int[]{-1,-1};
 	}
+
+
 
 	private void print(int[] numbers){
 		for (int i = 0; i < numbers.length; i++) {

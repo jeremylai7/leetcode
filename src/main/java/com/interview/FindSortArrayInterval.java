@@ -17,10 +17,13 @@ public class FindSortArrayInterval {
 
 	private int[] array = {1,2,2,3,4,6};
 
-	private int min = -20;
+	private int min = 2;
 
 	private int max = 8;
 
+	/**
+	 * 二分查找
+	 */
 	@Test
 	public void binarySearch() {
 		int left = binarySearch(array,min,true);
@@ -33,10 +36,10 @@ public class FindSortArrayInterval {
 		if (length == 0) {
 			return -1;
 		}
-		if (array[0] > max) {
+		if (!first && array[0] > target) {
 			return -1;
 		}
-		if (array[length-1] < min) {
+		if (first && array[length-1] < target) {
 			return -1;
 		}
 		int left = 0,right = length -1;

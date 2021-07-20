@@ -34,12 +34,16 @@ public class L15_3sum {
 			while (left < right) {
 				int sum = nums[left] + nums[right];
 				if (sum == target) {
-					List<Integer> list = new ArrayList<>();
-					list.add(nums[i]);
-					list.add(nums[left]);
-					list.add(nums[right]);
-					lists.add(list);
-					break;
+					lists.add(Arrays.asList(nums[i],nums[left],nums[right]));
+					//去重
+					while (left < right && nums[left] == nums[left + 1]) {
+						left++;
+					}
+					while (left < right && nums[right] == nums[right -1]) {
+						right--;
+					}
+					left++;
+					right--;
 				} else if (sum < target) {
 					left++;
 				} else {

@@ -27,6 +27,11 @@ public class L141LinkedListCycle {
 	private boolean set(ListNode head) {
 		Set<ListNode> set = new HashSet<>();
 		while(head != null) {
+			if (!set.add(head)) {
+				return true;
+			}
+
+
 			set.add(head);
 			head = head.next;
 			if (set.contains(head)) {

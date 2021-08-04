@@ -35,7 +35,7 @@ public class L61RotateList {
 			return head;
 		}
 		//计算链表长度
-		int n = 0;
+		int n = 1;
 		ListNode iterate = head;
 		while (iterate.next != null) {
 			n++;
@@ -47,9 +47,9 @@ public class L61RotateList {
 		}
 		//闭环
 		iterate.next = head;
-		while (add > 0) {
+		//iterate是最后一个节点，移动要首节点需要移动一个位置，这里要多往后遍历一次
+		while (add-- > 0) {
 			iterate = iterate.next;
-			add--;
 		}
 		ListNode ret = iterate.next;
 		iterate.next = null;

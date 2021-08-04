@@ -59,13 +59,4 @@ public class L237DeleteNodeInALinkedList {
         node.next = node.next.next;
     }
 
-
-
-    class ListNode{
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }

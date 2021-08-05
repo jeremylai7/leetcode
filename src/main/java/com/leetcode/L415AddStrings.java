@@ -11,7 +11,8 @@ public class L415AddStrings {
 
 	@Test
 	public void test() {
-		addStrings("123","345");
+		String result = addStrings("123","345");
+		System.out.println(result);
 	}
 
 	public String addStrings(String num1, String num2) {

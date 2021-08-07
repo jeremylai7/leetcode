@@ -17,6 +17,13 @@ public class L53MaximumSubarray {
         System.out.println(result);
     }
 
+    /**
+     * 贪心算法
+     * 1、sum记录连续和，如果小于零，从新归零
+     * 2、result记录最大记录，每次和sum做比较
+     * @param nums
+     * @return
+     */
     private int maxSubArray(int[] nums) {
         int sum = 0;
         int result = nums[0];

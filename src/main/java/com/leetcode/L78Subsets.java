@@ -41,7 +41,7 @@ public class L78Subsets {
             for (int j = 0; j < size; j++) {
                 List<Integer> newList = new ArrayList<>();
                 List<Integer> list = result.get(j);
-                //防止控制住异常
+                //防止空指针异常
                 if (list.size() > 0) {
                     newList.addAll(list);
 

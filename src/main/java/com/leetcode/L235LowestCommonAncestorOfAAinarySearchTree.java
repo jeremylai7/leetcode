@@ -47,7 +47,7 @@ public class L235LowestCommonAncestorOfAAinarySearchTree {
 		TreeNode node = root;
 		while (node != target && node != null) {
 			path.add(node);
-			if (target.value < node.value) {
+			if (target.val < node.val) {
 				node = node.left;
 			} else {
 				node = node.right;

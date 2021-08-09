@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * @Author: laizc
@@ -38,7 +37,7 @@ public class L144BinaryTreeTraversal {
 
 	private void addPreOrder(List<Integer> list,TreeNode treeNode){
 		if (treeNode != null){
-			list.add(treeNode.value);
+			list.add(treeNode.val);
 			addPreOrder(list,treeNode.left);
 			addPreOrder(list,treeNode.right);
 		}
@@ -57,7 +56,7 @@ public class L144BinaryTreeTraversal {
 	private void addMidOrder(List<Integer> list,TreeNode treeNode){
 		if (treeNode != null){
 			addMidOrder(list,treeNode.left);
-			list.add(treeNode.value);
+			list.add(treeNode.val);
 			addMidOrder(list,treeNode.right);
 		}
 	}
@@ -76,7 +75,7 @@ public class L144BinaryTreeTraversal {
 		if (treeNode != null){
 			addAfterOrder(list,treeNode.left);
 			addAfterOrder(list,treeNode.right);
-			list.add(treeNode.value);
+			list.add(treeNode.val);
 		}
 	}
 

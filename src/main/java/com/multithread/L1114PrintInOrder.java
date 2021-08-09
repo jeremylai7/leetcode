@@ -23,18 +23,22 @@ public class L1114PrintInOrder {
 	@Test
 	public void test() throws InterruptedException {
 		Foo foo = new Foo();
-		foo.first(() -> {
-
-		});
-		foo.second(() -> {
-
-		});
+		foo.first(new TestTask());
+		foo.second(new TestTask());
+		foo.third(new TestTask());
 
 	}
 
 
 
 
+}
+
+class TestTask implements Runnable{
+
+	@Override
+	public void run() {
+	}
 }
 
 class Foo{
@@ -44,6 +48,7 @@ class Foo{
 	public Foo() {}
 
 	public void first(Runnable printFirst) throws InterruptedException{
+		System.out.println("first");
 		printFirst.run();
 		atomicInteger.incrementAndGet();
 	}
@@ -52,6 +57,7 @@ class Foo{
 		while (atomicInteger.get() != 1) {
 
 		}
+		System.out.println("second");
 		printSecond.run();
 		atomicInteger.incrementAndGet();
 	}
@@ -60,6 +66,7 @@ class Foo{
 		while (atomicInteger.get() != 2) {
 
 		}
+		System.out.println("third");
 		printThird.run();
 		atomicInteger.incrementAndGet();
 	}

@@ -7,7 +7,7 @@ package com.leetcode;
  */
 public class TreeNode {
 
-	int value;
+	int val;
 
 	TreeNode left;
 
@@ -15,10 +15,10 @@ public class TreeNode {
 
 	TreeNode() {}
 
-	TreeNode(int value) { this.value = value; }
+	TreeNode(int value) { this.val = value; }
 
-	TreeNode(int value, TreeNode left, TreeNode right) {
-          this.value = value;
+	TreeNode(int val, TreeNode left, TreeNode right) {
+          this.val = val;
           this.left = left;
           this.right = right;
     }

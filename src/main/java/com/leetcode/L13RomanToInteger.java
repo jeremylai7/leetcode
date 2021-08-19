@@ -26,7 +26,7 @@ public class L13RomanToInteger {
 	@Test
 	public void test() {
 
-		String s = "MCMXCIV";
+		String s = "MCMXCI";
 		int sum = 0;
 		int length = s.length();
 		for (int i = 0; i < length; i++) {

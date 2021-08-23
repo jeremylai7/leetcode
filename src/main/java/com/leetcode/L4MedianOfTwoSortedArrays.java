@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class L4MedianOfTwoSortedArrays {
 
-	private int[] nums1 = {1,3};
+	private int[] nums1 = {1,3,4,5,6};
 	private int[] nums2 ={2};
 
 	@Test
@@ -19,20 +19,46 @@ public class L4MedianOfTwoSortedArrays {
 	}
 
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-		//判断两个数组长度之可能为奇数或者偶数
-		int length = nums1.length + nums2.length;
-		int l = length%2;
-		int index = 0;
-		if (l == 0) {
-
-		} else {
-			int flag = (length + 1)/2;
-
-			//奇数就是 length+1 的一半
-
+		int m = nums1.length;
+		int n = nums2.length;
+		if (m == 0 && n == 0) {
+			return 0;
 		}
-		return 0;
-
+		if (m == 0) {
+			if (n%2 == 0) {
+				return (nums2[n/2] + nums2[n/2 - 1])/2.0;
+			} else {
+				return nums2[n/2];
+			}
+		}
+		if (n == 0) {
+			if (m%2 == 0) {
+				return (nums1[m/2] + nums1[m/2 - 1])/2.0;
+			} else {
+				return nums1[m/2];
+			}
+		}
+		//合并数组
+		int[] nums = new int[m + n];
+		int left1 = 0,left2 = 0,index = 0;
+		while (left1 < m && left2 < n) {
+			if (nums1[left1] < nums2[left2]) {
+				nums[index++] = nums1[left1++];
+			} else {
+				nums[index++] = nums2[left2++];
+			}
+		}
+		if (left1 < m) {
+			while (left1 < m) {
+				nums[index++] = nums1[left1++];
+			}
+		} else if (left2 < n) {
+			while (left2 < n) {
+				nums[index++] = nums2[left2++];
+			}
+		}
+		int length = m + n;
+		return length%2 == 0 ? (nums[length/2 - 1] + nums[length/2])/2.0 : nums[length/2];
 	}
 
 }

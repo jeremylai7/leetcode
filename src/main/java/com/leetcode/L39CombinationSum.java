@@ -11,6 +11,13 @@ import java.util.List;
  * @Author: laizc
  * @Date: Created in  2021-08-24
  * @desc: 组合总和
+ *
+ * 给定一个无重复元素的正整数数组 candidates 和一个正整数 target ，找出 candidates 中所有可以使数字和为目标数 target 的唯一组合。
+
+	示例 1：
+
+	输入: candidates = [2,3,6,7], target = 7
+	输出: [[7],[2,2,3]]
  */
 public class L39CombinationSum {
 

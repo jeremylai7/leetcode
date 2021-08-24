@@ -18,6 +18,12 @@ public class L4MedianOfTwoSortedArrays {
 		System.out.println(median);
 	}
 
+	/**
+	 * 第一种方式 合并数组，然后取数组的中位数
+	 * @param nums1
+	 * @param nums2
+	 * @return
+	 */
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 		int m = nums1.length;
 		int n = nums2.length;

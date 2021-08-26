@@ -5,7 +5,7 @@
 * [回溯](#回溯)
     * [39 组合总和](#组合总和)
     * [40 组合总和 II](#组合总和II)
-    * 46 全排列 
+    * [46 全排列](#全排列)
 
 
 ### 回溯
@@ -55,7 +55,7 @@ public Solution {
 ##### 题目描述
 ![image](https://user-images.githubusercontent.com/11553237/130767960-4d920d68-ae7a-46c6-9fd4-9de8d7470c31.png)
 
-#### 解法
+##### 解法
 画出树形图
 
 ![leetcode树形图](https://user-images.githubusercontent.com/11553237/130768623-34bed63f-a001-426e-867a-256ca2ab6e4d.png)
@@ -98,7 +98,7 @@ class Solution {
 
 #### 组合总和II
 
-#### 解题思路
+##### 解题思路
 
 1. 数组先排序，以target作为根节点，创建一个分支做减法。**同一层下不能出现相同的元素，这是和[组合总和](#组合总和)不同的地方**。
 2. 得到分支结果后，以该结果作为根节点，创建分支做减法。
@@ -140,6 +140,50 @@ class Solution {
 }
 ```
 
+#### 全排列
+##### 解题思路
+1. 每个元素都需要遍历一遍。
+2. 遍历元素的时，遍历完第一数，做一个分叉遍历未遍历的数据。
+3. 遍历结束后，返回上一个分叉。
+
+##### 流程图
+![流程图](https://user-images.githubusercontent.com/11553237/130755983-d80694f1-7a4d-46d8-a67a-a18ba0bc9527.png)
+```
+
+class Solution {
+    List<List<Integer>> result = new ArrayList<>();
+
+    LinkedList<Integer> path = new LinkedList<>();
+
+    boolean[] used;
+
+    public List<List<Integer>> permute(int[] nums) {
+        if (nums.length == 0) {
+            return result;
+        }
+        used = new boolean[nums.length];
+        permuteHelper(nums);
+        return result;
+    }
+
+    private void permuteHelper(int[] nums) {
+        if (path.size() == nums.length) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) {
+                continue;
+            }
+            used[i] = true;
+            path.add(nums[i]);
+            permuteHelper(nums);
+            path.removeLast();
+            used[i] = false;
+        }
+    }
+}
+```
 
 
 

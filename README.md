@@ -1,6 +1,6 @@
 # leetcode 刷题with Java
 
-很多网上的算法都是一个题目一个题目讲解，本项目按照文件名称可以查看没一个题目的解法，但是算法主要是掌握一类解法。所以就总结了一些分类。
+本项目按照文件名称可以查看没一个题目的解法，具体可以查看[题解](https://github.com/jeremylai7/leetcode/tree/master/src/main/java/com/leetcode),本目录根据解法总一个归纳和总结。
 
 * [回溯](#回溯)
     * [39 组合总和](#组合总和)

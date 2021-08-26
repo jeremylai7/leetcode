@@ -27,6 +27,9 @@ public Solution {
    List<List<Integer>> result;
 
    LinkedList<Integer> path;
+   
+   //记录那些元素被遍历过
+   boolean[] used;
 
    private List<List<Integer>> permute(int[] nums) {
         result = new ArrayList<>();
@@ -41,10 +44,13 @@ public Solution {
             result.add(new ArrayList<>(path));
             return;
         }
+	//遍历各个元素
         for (int i = 0; i < nums.length; i++) {
             used[i] = true;
+	    //选择元素
             path.add(nums[i]);
             permuteHelper(nums);
+	    //移除元素
             path.removeLast();
             used[i] = false;
         }

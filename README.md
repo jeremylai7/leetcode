@@ -124,6 +124,7 @@ class Solution {
 		return;
 	}
 	for (int i = start; i <candidate.length ; i++) {
+	        //这里解决集合重复问题 
 		if (i > start && candidate[i] == candidate[i-1]) {
 			continue;
 		}

@@ -6,6 +6,7 @@
     * [39 组合总和](#组合总和)
     * [40 组合总和 II](#组合总和II)
     * [46 全排列](#全排列)
+    * [47 全排列 II](#全排列II)
 
 
 ### 回溯
@@ -184,6 +185,52 @@ class Solution {
     }
 }
 ```
+
+#### 全排列II
+##### 解题思路
+1. **首先要将元素做一个排序**，每个元素都需要遍历一遍，**如果当前元素遍历过了就遍历下一个，或者当前元素等于上一个元素并且上一个元素被遍历就遍历下一个**。
+2. 遍历元素的时，遍历完第一数，做一个分叉遍历未遍历的数据。
+3. 遍历结束后，返回上一个分叉。
+
+```
+class Solution {
+
+    private boolean[] used;
+
+    private LinkedList<Integer> path;
+
+    List<List<Integer>> lists = new ArrayList<>();
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        path = new LinkedList<>();
+	used = new boolean[nums.length];
+	Arrays.sort(nums);
+	recall(nums);
+	return lists;
+    }
+
+    private void recall(int[] nums) {
+	if (path.size() == nums.length) {
+		lists.add(new ArrayList<>(path));
+		return;
+	}
+	for (int i = 0; i < nums.length ; i++) {
+	        //这是和全排列不同的地方
+		if (used[i] || (i > 0 && nums[i] == nums[i-1] && used[i-1])) {
+			continue;
+		}
+		used[i] = true;
+		path.add(nums[i]);
+		recall(nums);
+		path.removeLast();
+		used[i] = false;
+
+	}
+    }
+
+}
+```
+
 
 
 

@@ -4,7 +4,7 @@
 
 * [回溯](#回溯)
     * [39 组合总和](#组合总和)
-    * 40 组合总和 II
+    * [40 组合总和 II](#组合总和II)
     * 46 全排列 
 
 
@@ -55,14 +55,14 @@ public Solution {
 ##### 题目描述
 ![image](https://user-images.githubusercontent.com/11553237/130767960-4d920d68-ae7a-46c6-9fd4-9de8d7470c31.png)
 
-#### 回溯解法
+#### 解法
 画出树形图
 
 ![leetcode树形图](https://user-images.githubusercontent.com/11553237/130768623-34bed63f-a001-426e-867a-256ca2ab6e4d.png)
 
-1. 以target作为根节点，创建一个分支做减法。
+1. 数组先排序，以target作为根节点，创建一个分支做减法。
 2. 得到分支结果后，以该结果作为根节点，创建分支做减法。
-3. 如果结果未负数，则返回带上一个分支；如果结果未零，添加符合条件的值，递归终止。
+3. 如果结果未负数，则返回带上一个分支，代码里的break前提就是数组要进行排序；如果结果未零，添加符合条件的值，递归终止。
 
 ```
 class Solution {
@@ -96,8 +96,48 @@ class Solution {
 }
 ```
 
+#### 组合总和II
 
+#### 解题思路
 
+1. 数组先排序，以target作为根节点，创建一个分支做减法。**同一层下不能出现相同的元素，这是和[组合总和](#组合总和)不同的地方**。
+2. 得到分支结果后，以该结果作为根节点，创建分支做减法。
+3. 如果结果未负数，则返回带上一个分支，代码里的break前提就是数组要进行排序；如果结果未零，添加符合条件的值，递归终止。
+
+```
+class Solution {
+
+    List<List<Integer>> list = new ArrayList<>();
+
+	int[] candidate;
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+		candidate = candidates;
+		recall(0,target,new LinkedList<>());
+		return list;
+    }
+
+    private void recall(int start, int target, LinkedList<Integer> path) {
+	if (target == 0) {
+		list.add(new ArrayList<>(path));
+		return;
+	}
+	for (int i = start; i <candidate.length ; i++) {
+		if (i > start && candidate[i] == candidate[i-1]) {
+			continue;
+		}
+		int sub = target - candidate[i];
+		if (sub < 0) {
+			break;
+		}
+		path.add(candidate[i]);
+		recall(i + 1,sub,path);
+		path.removeLast();
+	}
+     }
+}
+```
 
 
 

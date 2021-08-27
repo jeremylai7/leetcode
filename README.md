@@ -244,7 +244,7 @@ class Solution {
 }
 ```
 #### N皇后
-#####题目描述
+##### 题目描述
 ![image](https://user-images.githubusercontent.com/11553237/131109104-53ec67db-833f-4c29-b97e-c4b2b6f9405d.png)
 ##### 解题思路
 * N 皇后问题是一个经典的回溯算法问题。
@@ -290,6 +290,7 @@ class Solution {
 #### 三数之和
 ##### 题目描述
 ![image](https://user-images.githubusercontent.com/11553237/131072601-a4c465a8-a413-4dc1-bf31-d61e4b878051.png)
+
 ##### 解题思路 for + 双指针
 * 首先将数组做一个排序
 * 对数组进行for遍历

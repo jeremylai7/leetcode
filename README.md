@@ -7,6 +7,12 @@
     * [40 组合总和 II](#组合总和II)
     * [46 全排列](#全排列)
     * [47 全排列 II](#全排列II)
+* [双指针](#双指针)
+    * [11 盛最多水的容器](#盛最多水的容器)
+    * [15. 三数之和](#三数之和)
+    * [16. 最接近的三数之和](#最接近的三数之和)
+    * [283. 移动零](#移动零)	
+
 
 
 ### 回溯
@@ -237,9 +243,86 @@ class Solution {
 }
 ```
 
+### 双指针
+* 概念: 回溯是暴力搜索法的一种
+1. 双指针一般是一个left指针一个right指针，或者一个快指针，一个慢指针。
+2. 如果是左右指针的话，一般是在数组左右两侧，当不符合条件时，往中间移动，知道符合条件后终止。
+3. 如果是快慢指针的话，一般快指针走两步，慢指针走一步，如果快指针走一个圈赶上了慢指针，则终止条件，比如检验一个链接是否有环。
 
+### 双指针例子
 
+#### 盛最多水的容器
+##### 题目描述
+![image](https://user-images.githubusercontent.com/11553237/131064949-bdf4dd8b-6c91-46c6-a903-f63eebdabf3e.png)
+##### 解题思路
+* 水是由宽和高组成的，盛最多的水，也就是横坐标的长度 * 竖线的最小值的乘积最大。
+* 初始化时，左右指针分别指向数组的左右两端，他们可以容纳的容量是 min(1,7) * 8。
+* 此时需要移动一个指针，需要移动哪一个？因为水的容量是由**两个竖线最小值 * 左右指针的距离**，移动指针，后者会减少。如果移动数字较大的那个指针，竖线不会的最小值不会增加，那么水的容量会减少，因此移动较大指针显然是不合理的，所以我们移动竖线最小的那个指针。
+```
+class Solution {
+    public int maxArea(int[] height) {
+        int left = 0;
+        int right = height.length -1;
+        int max = 0;
+        while (left < right) {
+            int capacity = Math.min(height[left],height[right]) * (right - left);
+            if (max < capacity) { max = capacity;}
+            if(height[left] < height[right]) {
+                left++;
+            }else{
+                right--;
+            }
 
+        }
+        return max;
+    }
+}
+```
+
+#### 三数之和
+##### 题目描述
+![image](https://user-images.githubusercontent.com/11553237/131072601-a4c465a8-a413-4dc1-bf31-d61e4b878051.png)
+##### 解题思路 for + 双指针
+* 首先将数组做一个排序
+* 对数组进行for遍历
+* 每次遍历获取 目标值 target = -遍历值。
+* 设置左右指针，左右指针相加得到sum，
+    * 如果sum < target,左指针往右移动。
+    * 如果sum > target，右指针往左移动。
+    * 如果sum = target，符合条件，返回值。
+    
+```
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> lists = new ArrayList<>();
+        Arrays.sort(nums);
+	//for循环 + 双指针
+	for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+	    int target = -nums[i];
+	    int left = i +1,right = nums.length - 1;
+            while (left < right) {
+		int sum = nums[left] + nums[right];
+		if (sum == target) {
+		    List<Integer> list = new ArrayList<>();
+	            list.add(nums[i]);
+		    list.add(nums[left]);
+		    list.add(nums[right]);
+		    lists.add(list);
+		    break;
+		} else if (sum < target) {
+		    left++;
+		} else {
+		    right--;
+		}
+	}
+	}
+	return lists;
+    }
+}
+```
 
 
 

@@ -1,12 +1,13 @@
 # leetcode 刷题with Java
 
-本项目按照文件名称可以查看没一个题目的解法，具体可以查看[题解](https://github.com/jeremylai7/leetcode/tree/master/src/main/java/com/leetcode),本目录根据解法总一个归纳和总结。
+本项目按照文件名称可以查看没一个题目的解法，具体可以查看[代码题解](https://github.com/jeremylai7/leetcode/tree/master/src/main/java/com/leetcode),本目录根据解法总一个归纳和总结。
 
 * [回溯](#回溯)
     * [39 组合总和](#组合总和)
     * [40 组合总和 II](#组合总和II)
     * [46 全排列](#全排列)
     * [47 全排列 II](#全排列II)
+    * [51 N皇后](#N皇后)
 * [双指针](#双指针)
     * [11 盛最多水的容器](#盛最多水的容器)
     * [15. 三数之和](#三数之和)
@@ -242,6 +243,13 @@ class Solution {
 
 }
 ```
+#### N皇后
+#####题目描述
+![image](https://user-images.githubusercontent.com/11553237/131109104-53ec67db-833f-4c29-b97e-c4b2b6f9405d.png)
+##### 解题思路
+* N 皇后问题是一个经典的回溯算法问题。
+*  
+
 
 ### 双指针
 * 概念: 双指针是对暴力搜索的一种优化

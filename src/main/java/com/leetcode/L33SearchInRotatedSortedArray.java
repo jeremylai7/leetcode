@@ -31,11 +31,14 @@ public class L33SearchInRotatedSortedArray {
 		}
 		int left = 0,right = length-1;
 		while (left <= right) {
+			//使用left + (right - left)/2 而不是 (right + left)/2 是防止 right + left 超过int 范围
 			int mid = left + (right - left)/2;
 			if (nums[mid] == target) {
 				return mid;
 			}
+			//第一个数和中间数做对比
 			if (nums[0] <= nums[mid]) {
+				//目标位于 第一个数和中间数
 				if (nums[0] <= target && target < nums[mid]) {
 					right = mid -1;
 				} else {

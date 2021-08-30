@@ -2,8 +2,7 @@ package com.leetcode;
 
 import org.junit.Test;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * @Author: laizc
@@ -35,8 +34,8 @@ public class L445AddTwoNumbersIi {
 	 * @return
 	 */
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		Deque<Integer> stack1 = new LinkedList<>();
-		Deque<Integer> stack2 = new LinkedList<>();
+		Stack<Integer> stack1 = new Stack<>();
+		Stack<Integer> stack2 = new Stack<>();
 		while (l1 != null) {
 			stack1.push(l1.val);
 			l1 = l1.next;

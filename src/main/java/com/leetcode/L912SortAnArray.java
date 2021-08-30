@@ -76,10 +76,12 @@ public class L912SortAnArray {
 				int l = stack.pop();
 				int r = stack.pop();
 				int index = partition(nums,l,r);
+				//前半段排序
 				if (l < index -1) {
 					stack.push(index-1);
 					stack.push(l);
 				}
+				//后半段排序
 				if (r > index + 1) {
 					stack.push(r);
 					stack.push(index+1);
@@ -89,6 +91,14 @@ public class L912SortAnArray {
 		return nums;
 	}
 
+	/**
+	 * 小于基准值的放在基准值前边
+	 * 大于基准值的放在基准值后面
+	 * @param nums
+	 * @param l
+	 * @param r
+	 * @return
+	 */
 	private int partition(int[] nums, int l, int r) {
 		int standard = nums[l];
 		while (l < r) {

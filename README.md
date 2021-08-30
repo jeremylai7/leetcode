@@ -248,8 +248,79 @@ class Solution {
 ![image](https://user-images.githubusercontent.com/11553237/131109104-53ec67db-833f-4c29-b97e-c4b2b6f9405d.png)
 ##### 解题思路
 * N 皇后问题是一个经典的回溯算法问题。
+* 初始化数组，默认设置.
+* 遍历完第一行，第一列后遍历下一行的每一列，看是否符合不冲突条件，符合规范放入Q,遍历下一行。不符合条件，则终止遍历。
+* 行数遍历结束后，如果遍历完全部行数，添加数组，否则不添加。
 *  
+```
+class Solution {
 
+    List<List<String>> res = new ArrayList<>();
+
+    public List<List<String>> solveNQueens(int n) {
+        // 初始化棋盘 "." 表示空，"Q"表示皇后，
+		char[][] board = new char[n][n];
+		for (char[] c : board) {
+			Arrays.fill(c, '.');
+		}
+		backtrack(board, 0);
+		return res;
+    }
+
+    private void backtrack(char[][] board, int row) {
+		//终止条件
+		if (row == board.length) {
+			res.add(charToList(board));
+			return;
+		}
+		//每一行列数(也就是长度)
+		int n = board[row].length;
+		for (int col = 0; col < n; col++) {
+			//排除相互攻击的格子
+				if (!isValid(board,row,col)) {
+				continue;
+			}
+			//放入Q
+			board[row][col] = 'Q';
+			//进入下一行放皇后
+			backtrack(board,row + 1);
+			//撤销Q
+			board[row][col] = '.';
+		}
+   }
+
+   private boolean isValid(char[][] board, int row, int col) {
+		int n = board.length;
+		//检查列是否有皇后冲突
+		for (int i = 0; i < n; i++) {
+			if (board[i][col] == 'Q') {
+				return false;
+			}
+		}
+		//检查右上方是否有皇后冲突
+		for (int i = row - 1,j = col + 1; i >= 0 && j < n; i--,j++) {
+			if (board[i][j] == 'Q') {
+				return false;
+			}
+		}
+		//检查左上方是否有皇后冲突
+		for (int i = row - 1,j = col - 1; i >= 0 && j >= 0; i--,j--) {
+			if (board[i][j] == 'Q') {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public List<String> charToList(char[][] board) {
+		List<String> list = new ArrayList<>();
+		for (int i = 0; i < board.length; i++) {
+			list.add(String.copyValueOf(board[i]));
+		}
+		return list;
+	}
+}
+```
 
 ### 双指针
 * 概念: 双指针是对暴力搜索的一种优化

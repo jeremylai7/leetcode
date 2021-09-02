@@ -1,7 +1,11 @@
 # leetcode 刷题with Java
 
 本项目按照文件名称可以查看没一个题目的解法，具体可以查看[代码题解](https://github.com/jeremylai7/leetcode/tree/master/src/main/java/com/leetcode),本目录根据解法总一个归纳和总结。
-
+* [链表]
+    * [206 反转链表]()
+    * [19 删除链表的倒数第 N 个结点]()
+    * [141 环形链表]()
+    * [21 合并两个有序链表]()
 * [回溯](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E5%9B%9E%E6%BA%AF.md)
     * [39 组合总和](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E5%9B%9E%E6%BA%AF.md#组合总和)
     * [40 组合总和 II](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E5%9B%9E%E6%BA%AF.md#组合总和II)

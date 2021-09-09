@@ -23,8 +23,6 @@ public class L100SameTree {
         TreeNode treeNode2 = new TreeNode(1,new TreeNode(2),new TreeNode(3));
         boolean same = isSameTree(treeNode,treeNode2);
         System.out.println(same);
-
-
     }
 
     public boolean isSameTree(TreeNode p, TreeNode q) {

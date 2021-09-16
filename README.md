@@ -23,6 +23,7 @@
    * [69 x 的平方根](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#x的平方根) 
    * [74 搜索二维矩阵](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#搜索二维矩阵)
    * [153 寻找旋转排序数组中的最小值](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#寻找旋转排序数组中的最小值)
+   * [367 有效的完全平方数](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#有效的完全平方数)
 
 
 

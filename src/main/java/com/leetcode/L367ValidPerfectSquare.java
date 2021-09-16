@@ -11,7 +11,9 @@ public class L367ValidPerfectSquare {
 
 	@Test
 	public void test() {
-		int x = 20;
+		double aa = Math.sqrt(808201);
+		System.out.println(aa);
+		int x = 808201;
     	boolean valid = binary(x);
 		System.out.println(valid);
 	}
@@ -25,10 +27,12 @@ public class L367ValidPerfectSquare {
 		if (x <= 2) {
 			return true;
 		}
-		int left = 2,right = x/2,y,square;
+		int left = 2,right = x/2,y;
+		long square;
 		while (left <= right) {
 			y = left + (right - left)/2;
-			square = y * y;
+			//防止数字超过范围
+			square = (long)y * y;
 			if (square == x) {
 				return true;
 			}else if (square > x) {

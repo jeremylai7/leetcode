@@ -20,8 +20,8 @@
 
 * [二分查找](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md)
    * [33 搜索旋转排序数组](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#搜索旋转排序数组)
-   * [74 搜索二维矩阵]()
-   * [153 寻找旋转排序数组中的最小值]()
+   * [74 搜索二维矩阵](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#搜索二维矩阵)
+   * [153 寻找旋转排序数组中的最小值](https://github.com/jeremylai7/leetcode/blob/master/src/markdown/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md#寻找旋转排序数组中的最小值)
 
 
 

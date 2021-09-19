@@ -14,8 +14,15 @@ public class L42TrappingRainWater {
         int[] nums = {0,1,0,2,1,0,1,3,2,1,2,1};
         int result = trap(nums);
         System.out.println(result);
+        result = trap2(nums);
+        System.out.println(result);
     }
 
+    /**
+     * 按照行计算
+     * @param height
+     * @return
+     */
     public int trap(int[] height) {
         int sum = 0;
         int max = 0;
@@ -40,6 +47,34 @@ public class L42TrappingRainWater {
                     temp = 0;
                     isStart = true;
                 }
+            }
+        }
+        return sum;
+    }
+
+    public int trap2(int[] height) {
+        //两端的列不用考虑，下标从 1 到length - 2
+        int sum = 0;
+        for (int i = 1; i < height.length - 2; i++) {
+            int maxLeft = 0;
+            //找出左边最高
+            for (int j = i - 1; j >= 0; j--) {
+                if (height[j] > maxLeft) {
+                    maxLeft = height[j];
+                }
+            }
+            int maxRight = 0;
+            //找到右边最高
+            for (int j = i + 1; j < height.length; j++) {
+                if (height[j] > maxRight) {
+                    maxRight = height[j];
+                }
+            }
+            //找出两端更小的
+            int min = Math.min(maxLeft,maxRight);
+            //只有更小的一段大于当前列，才有水
+            if (min > height[i]) {
+                sum += min - height[i];
             }
         }
         return sum;

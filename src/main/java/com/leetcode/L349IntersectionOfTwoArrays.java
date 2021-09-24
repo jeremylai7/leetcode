@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -15,9 +17,9 @@ import java.util.Set;
  */
 public class L349IntersectionOfTwoArrays {
 
-	private int[] num1 = {1,2,2,1};
+	private final int[] num1 = {1,2,2,1};
 
-	private int[] num2 = {2,2};
+	private final int[] num2 = {2,2};
 
 
 	@Test
@@ -33,6 +35,28 @@ public class L349IntersectionOfTwoArrays {
 		}
 		Integer[] array = set.toArray(new Integer[0]);
 		System.out.println(array);
+	}
+
+	@Test
+	public void test() {
+		int[] result = intersection(num1,num2);
+		System.out.println(result);
+	}
+
+	public int[] intersection(int[] nums1, int[] nums2) {
+		Set<Integer> set = new HashSet<>();
+		for (int num : nums1) {
+			set.add(num);
+		}
+		int[] nums = new int[nums1.length];
+		int index = 0;
+		for (int num : nums2) {
+			if (set.contains(num)) {
+				nums[index++] = num;
+				set.remove(num);
+			}
+		}
+		return Arrays.copyOfRange(nums, 0, index);
 	}
 
 

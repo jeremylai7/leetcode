@@ -30,8 +30,15 @@ public class L73SetMatrixZeroes {
         int[][] matrix = {{1,1,1},{1,0,1},{1,1,1}};
         setZeroes(matrix);
         System.out.println(matrix);
+        int[][] matrix2 = {{1,2,3,4},{5,0,7,8},{0,10,11,12},{13,14,15,0}};
+        setZeroes2(matrix2);
+        System.out.println(matrix2);
     }
 
+    /**
+     * 空间复杂度 O(m + n)
+     * @param matrix
+     */
     public void setZeroes(int[][] matrix) {
         int m = matrix.length;
         int n = matrix[0].length;
@@ -50,6 +57,65 @@ public class L73SetMatrixZeroes {
                 if (row[i] || cloumn[j]) {
                     matrix[i][j] = 0;
                 }
+            }
+        }
+    }
+
+    /**
+     * 常量空间复杂度
+     * @param matrix
+     */
+    public void setZeroes2(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        boolean rowFlag0 = false;
+        boolean colFlag0 = false;
+        //第一行是否有零
+        for (int i = 0; i < n; i++) {
+            if (matrix[0][i] == 0) {
+                rowFlag0 = true;
+                break;
+            }
+        }
+        //第一列是否有零
+        for (int i = 0; i < m; i++) {
+            if (matrix[i][0] == 0) {
+                colFlag0 = true;
+                break;
+            }
+        }
+        //第一行第一列作为标志位
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    matrix[0][j] = matrix[i][0] = 0;
+                }
+            }
+        }
+        //列重置零,排除第一列
+        for (int i = 1; i < n; i++) {
+            if (matrix[0][i] == 0) {
+                for (int j = 0; j < m; j++) {
+                    matrix[j][i] = 0;
+                }
+            }
+        }
+        //行重置零,排除第一行
+        for (int i = 1; i < m; i++) {
+           if (matrix[i][0] == 0) {
+               for (int j = 0; j < n; j++) {
+                   matrix[i][j] = 0;
+               }
+           }
+        }
+        if (rowFlag0) {
+            for (int i = 0; i < n; i++) {
+                matrix[0][i] = 0;
+            }
+        }
+        if (colFlag0) {
+            for (int i = 0; i < m; i++) {
+                matrix[i][0] = 0;
             }
         }
     }

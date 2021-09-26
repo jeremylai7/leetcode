@@ -33,6 +33,43 @@ public class L73SetMatrixZeroes {
         int[][] matrix2 = {{1,2,3,4},{5,0,7,8},{0,10,11,12},{13,14,15,0}};
         setZeroes2(matrix2);
         System.out.println(matrix2);
+        int[][] matrix3 = {{1,2,3,4},{5,0,7,8},{0,10,11,12},{13,14,15,0}};
+        setZeroes3(matrix3);
+        System.out.println(matrix3);
+    }
+
+    public void setZeroes3(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int[][] copyMatrix = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                copyMatrix[i][j] = matrix[i][j];
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (copyMatrix[i][j] == 0) {
+                    setRowZero(matrix,i);
+                    setColZero(matrix,j);
+                }
+            }
+        }
+
+    }
+
+    private void setRowZero(int[][] matrix,int row) {
+        int n = matrix[0].length;
+        for (int i = 0; i < n; i++) {
+            matrix[row][i] = 0;
+        }
+    }
+
+    private void setColZero(int[][] matrix,int col) {
+        int m = matrix.length;
+        for (int i = 0; i < m; i++) {
+            matrix[i][col] = 0;
+        }
     }
 
     /**

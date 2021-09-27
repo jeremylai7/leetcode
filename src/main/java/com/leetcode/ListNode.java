@@ -19,4 +19,18 @@ public class ListNode {
     }
 
 
+    /**
+     * 数组转链表
+     * @param num
+     * @return
+     */
+    public static ListNode arrayTransformListNode(int[] num) {
+        //head = [1,2,3,4,5], k = 2
+        ListNode node = null;
+        for (int i = num.length - 1; i >= 0 ; i--) {
+            node = new ListNode(num[i],node);
+        }
+        return node;
+    }
+
 }

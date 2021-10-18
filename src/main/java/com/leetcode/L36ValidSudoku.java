@@ -3,7 +3,9 @@ package com.leetcode;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @Author: laizc
@@ -38,6 +40,24 @@ public class L36ValidSudoku {
 				{'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
 		boolean flag = isValidSudoku(nums);
 		System.out.println(flag);
+		flag = isValidSudoku2(nums);
+		System.out.println(flag);
+	}
+
+	public boolean isValidSudoku2(char[][] board) {
+		Set<String> set = new HashSet<>();
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				char ch = board[i][j];
+				if (ch != '.') {
+					String b = "(" + ch + ")";
+					if (!set.add(i + b) || !set.add(b + j) || !set.add(i/3 + b + j/3)) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 	public boolean isValidSudoku(char[][] board) {

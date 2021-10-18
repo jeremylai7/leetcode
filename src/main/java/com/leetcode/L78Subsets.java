@@ -13,17 +13,13 @@ import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResol
  **/
 public class L78Subsets {
 
-    private int[] nums = {1,2,3};
+    private final int[] nums = {1,2,3};
 
     @Test
     public void test() {
         List<List<Integer>> lists =  subsets(nums);
         System.out.println(lists);
-
-
-
-
-
+        System.out.println(subsets2(nums));
 
     }
 
@@ -51,6 +47,27 @@ public class L78Subsets {
             }
         }
         return result;
+    }
+
+    /**
+     * 回溯
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> subsets2(int[] nums) {
+        List<List<Integer>> lists = new ArrayList<>();
+        recall(nums,0,new ArrayList<>(),lists);
+        return lists;
+    }
+
+    private void recall(int[] nums,int start,ArrayList<Integer> temp,List<List<Integer>> lists) {
+        lists.add(new ArrayList<>(temp));
+        for (int i = start; i < nums.length; i++) {
+            temp.add(nums[i]);
+            recall(nums,i + 1,temp,lists);
+            temp.remove(temp.size() - 1);
+        }
+
     }
 
 }

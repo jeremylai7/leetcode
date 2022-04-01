@@ -18,18 +18,40 @@ import org.junit.Test;
  * 输出: 3
  * 解释: 10/3 = truncate(3.33333..) = truncate(3) = 3
  **/
-public class L2DivideTwoIntegers {
+public class L29DivideTwoIntegers {
 
     @Test
     public void test() {
-        System.out.println();
+        long aa = 2147483648L;
+        long BB = 1;
+
         int a = -2147483648;
-        int b = 1;
-        System.out.println(divide(a,b));
+        int b = -1;
+        System.out.println(divide2(a,b));
+
 
 
 
     }
+
+    public int divide2(int dividend, int divisor) {
+        int sign = 1;
+        if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)) {
+            sign = -1;
+        }
+        long dividends = Math.abs((long) dividend);
+        long divisors = Math.abs((long) divisor);
+        long index = 0;
+        while (dividends >= divisors) {
+            dividends = dividends - divisors;
+            index++;
+        }
+        if (index > Integer.MAX_VALUE && sign == 1) {
+            return Integer.MAX_VALUE * sign;
+        }
+        return (int) index * sign;
+    }
+
 
     /**
      * 步进

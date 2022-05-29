@@ -30,6 +30,48 @@ public class Sort {
 
     }
 
+    /**
+     * 选择排序
+     */
+    @Test
+    public void selectSort() {
+        int[] array = ARRAY;
+        for (int i = 0; i < array.length; i++) {
+            int minIndex = i;
+            for (int j = i; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = array[minIndex];
+            array[minIndex] = array[i];
+            array[i] = temp;
+        }
+        print(array);
+    }
+
+    /**
+     * 插入排序
+     */
+    @Test
+    public void insertSort() {
+        int[] array = ARRAY;
+        int preIndex,current;
+        for (int i = 1; i < array.length; i++) {
+            preIndex = i - 1;
+            current = array[i];
+            while (preIndex >= 0 && current < array[preIndex]) {
+                array[preIndex + 1] = array[preIndex];
+                preIndex--;
+            }
+            array[preIndex+1] = current;
+        }
+        print(array);
+
+    }
+
+
+
     private void print(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");

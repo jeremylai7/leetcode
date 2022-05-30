@@ -70,6 +70,51 @@ public class Sort {
 
     }
 
+    /**
+     * 快速排序
+     */
+    @Test
+    public void quickSort() {
+        int[] array = ARRAY;
+        recall(array,0,array.length - 1);
+        print(array);
+    }
+
+    private void recall(int[] array,int left,int right) {
+        if (left > right) {
+            return;
+        }
+        int i = left;
+        int j = right;
+        // 找到基准值，先存起来
+        int stand = array[i];
+        while (i < j) {
+            // 找到比基准值小的数
+            while (i < j && array[j] > stand) {
+               j--;
+            }
+            // 小于基准值并赋值
+            if (i < j) {
+                array[i] = array[j];
+                i++;
+            }
+            // 找到大于基准值的数
+            while (i < j && array[i] < stand) {
+                i++;
+            }
+            if (i < j) {
+                array[j] = array[i];
+            }
+        }
+        array[i] = stand;
+        recall(array,left,i - 1);
+        recall(array,i + 1,right);
+
+
+
+
+
+    }
 
 
     private void print(int[] array) {

@@ -10,11 +10,22 @@ import org.junit.Test;
  **/
 public class DemoTest {
 
+	private int[] coinsArray;
+
 	@Test
 	public void test() {
+		int[] coins = {1,2,5};
+		int amount = 11;
+		coinsArray = coins;
+		int count = recall(amount,0);
 
 
 
+	}
+
+	private int recall(int amount,int count) {
+
+		return -1;
 	}
 
 

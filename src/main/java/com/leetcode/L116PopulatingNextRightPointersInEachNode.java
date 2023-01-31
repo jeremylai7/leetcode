@@ -12,9 +12,6 @@ import java.util.Queue;
  */
 public class L116PopulatingNextRightPointersInEachNode {
 
-    /**
-     * 解法一：队列
-     */
     @Test
     public void test() {
         Node node3 = new Node(2,null,null,null);
